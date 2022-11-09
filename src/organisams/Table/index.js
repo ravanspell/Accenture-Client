@@ -62,7 +62,7 @@ const TableComponent = (props) => {
 
 // set props and their data types
 TableComponent.propTypes = {
-    columns: PropTypes.arrayOf(PropTypes.a).isRequired,
+    columns: PropTypes.arrayOf(PropTypes.any).isRequired,
     data: PropTypes.arrayOf(PropTypes.any)
 };
 // set props default values
