@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
     root: {
         "& .MuiTableCell-head": {
-            fontWeight:'bold',
+            fontWeight: 'bold',
         },
     }
 });
@@ -30,9 +30,9 @@ const TableComponent = (props) => {
             return o[key];
         }, data);
     }
-    
+
     return (
-        <TableContainer  component={Paper}>
+        <TableContainer component={Paper}>
             <Table style={{ width: '100%' }} aria-label="simple table">
                 <TableHead>
                     <TableRow className={classes.root}>
@@ -47,10 +47,22 @@ const TableComponent = (props) => {
                             key={`row_${index}`}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            {columns.map(({ key }) => (
-                                <TableCell key={key} component="th" scope="row">
-                                    {getValue(key, row)}
-                                </TableCell>
+                            {columns.map((rowValue) => (
+                                <>
+                                    {rowValue?.actions ? (
+                                        <TableCell key={rowValue.key} component="th" scope="row">
+                                            {rowValue?.actions.map(({ render, }) => (
+                                                <>
+                                                    {render(row)}
+                                                </>
+                                            ))}
+                                        </TableCell>
+                                    ) : (
+                                        <TableCell key={rowValue.key} component="th" scope="row">
+                                            {getValue(rowValue.key, row)}
+                                        </TableCell>
+                                    )}
+                                </>
                             ))}
                         </TableRow>
                     ))}
