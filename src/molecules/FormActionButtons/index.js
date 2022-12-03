@@ -26,7 +26,7 @@ const FormActionButtons = (props) => {
                 <Button
                     onClick={onSubmit}
                     title={submitButtonTitle}
-                    disabled={loading}
+                    loading={loading}
                 />
             </div>
         </div>

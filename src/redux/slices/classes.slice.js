@@ -20,9 +20,16 @@ export const classesSlice = createSlice({
                 loading: false
             };
         },
-        createClassesStart: () => {
+        createClassesStart: (state) => {
             return {
+                ...state,
                 loading: true
+            };
+        },
+        createClassesEnd: (state) => {
+            return {
+                ...state,
+                loading: false
             };
         },
     },
@@ -32,6 +39,7 @@ export const {
     fetchClassesSuccess, 
     fetchClassesStart,
     createClassesStart,
+    createClassesEnd,
 } = classesSlice.actions;
 
 export default classesSlice.reducer
