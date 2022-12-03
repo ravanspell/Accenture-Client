@@ -25,7 +25,7 @@ const CreateClasses = () => {
 
         if (Object.keys(validationErrors).length === 0) {
             const formValues = formRef.current.values;
-            dispatch(createClassesStart(formValues));
+            dispatch(createClassesStart({formValues, navigate}));
         }
     }
 

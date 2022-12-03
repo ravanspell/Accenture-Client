@@ -22,7 +22,7 @@ const CreateTeacherTemplate = (props) => {
             />
             <FormActionButtons
                 cancelButtonTitle="Go Back"
-                submitButtonTitle=" Add Class"
+                submitButtonTitle="Add Class"
                 onCancel={handleCancelCreate}
                 onSubmit={handleSubmit}
                 loading={loading}

@@ -19,7 +19,7 @@ const CreateTeachers = () => {
 
         if (Object.keys(validationErrors).length === 0) {
             const formValues = formRef.current.values;
-            dispatch(createTeacherStart(formValues));
+            dispatch(createTeacherStart({formValues, navigate}));
         }
     }
 

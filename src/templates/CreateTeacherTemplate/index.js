@@ -4,7 +4,7 @@ import FormActionButtons from '../../molecules/FormActionButtons';
 import PageHeader from '../../molecules/PageHeader';
 import CreateTeacherForm from '../../organisams/TeacherForm';
 
-const CreateClassesTemplate = (props) => {
+const CreateTeacherTemplate = (props) => {
     const { 
         formRef, 
         handleCancelCreate, 
@@ -12,11 +12,19 @@ const CreateClassesTemplate = (props) => {
         loading,
     } = props;
 
+    const initialValues={
+        name: '',
+        email: '',
+        contactNumber: '',
+        subject: ''
+    }
+
     return (
         <Fragment>
             <PageHeader pageTitle="Add Teacher" />
             <CreateTeacherForm
                 formRef={formRef}
+                initialValues={initialValues}
             />
             <FormActionButtons
                 cancelButtonTitle="Go Back"
@@ -30,4 +38,4 @@ const CreateClassesTemplate = (props) => {
     );
 };
 
-export default CreateClassesTemplate;
+export default CreateTeacherTemplate;
