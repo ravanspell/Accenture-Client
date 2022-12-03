@@ -11,6 +11,7 @@ import SelectionField from '../../molecules/SelectionField';
 const CreateTeacherForm = (props) => {
     const { formRef, initialValues } = props;
 
+    const digitsOnly = (value) => /^\d+$/.test(value)
     // setup validations to form
     const formValidationSchema = yup.object().shape({
         subject: yup.string()
@@ -19,7 +20,8 @@ const CreateTeacherForm = (props) => {
             .required("Name required!"),
         email: yup.string().email().required("Email required!"),
         contactNumber: yup.string()
-            .required("Contact number required!"),
+            .required("Contact number required!")
+            .test('Digits only', 'Only numbers are allowed!', digitsOnly)
     });
 
     return (
