@@ -3,6 +3,7 @@ import watchFetchTeachers from '../sagas/fetchTeachers.saga'
 import watchFetchClasses from '../sagas/fetchClasses.saga'
 import watchCreateClasses from '../sagas/createClass.saga'
 import watchCreateTeacher from '../sagas/createTeacher.saga'
+import watchUpdateTeacher from '../sagas/updateTeacherSaga'
 
 function* rootSaga() {
   yield all([
@@ -10,6 +11,7 @@ function* rootSaga() {
     watchFetchClasses(),
     watchCreateClasses(),
     watchCreateTeacher(),
+    watchUpdateTeacher(),
   ])
 }
 export default rootSaga

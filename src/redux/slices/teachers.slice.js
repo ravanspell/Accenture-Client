@@ -21,9 +21,28 @@ export const teachersSlice = createSlice({
                 loading: false
             };
         },
-        createTeacherStart: () => {
+        createTeacherStart: (state) => {
             return {
+                ...state,
                 loading: true
+            };
+        },
+        createTeacherEnd: (state) => {
+            return {
+                ...state,
+                loading: false
+            };
+        },
+        updateTeacherStart: (state) => {
+            return {
+                ...state,
+                loading: true
+            };
+        },
+        updateTeacherSuccess: (state) => {
+            return {
+                ...state,
+                loading: false
             };
         },
     },
@@ -33,6 +52,9 @@ export const {
     fetchTeachersSuccess,
     fetchTeachersStart,
     createTeacherStart,
+    createTeacherEnd,
+    updateTeacherStart,
+    updateTeacherSuccess,
 } = teachersSlice.actions;
 
 export default teachersSlice.reducer

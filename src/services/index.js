@@ -11,8 +11,8 @@ const post = (url, data) => {
   return axios.post(url, data);
 };
 
-export const sendLogin = (userData) => {
-  return post(baseUrl + "api/user/login", userData);
+const put = (url, data) => {
+  return axios.put(url, data);
 };
 
 //------------teachers ----------------------------//
@@ -22,6 +22,10 @@ export const fetchTeachers = () => {
 
 export const saveTeacher = (data) => {
   return post(baseUrl + "teachers", data);
+};
+
+export const updateTeacher = (data) => {
+  return put(`${baseUrl}teachers?id=${data.email}`, data);
 };
 
 //------------classes ----------------------------//

@@ -11,7 +11,11 @@ const middleware = [sagaMiddleware, reduxLogger];
 
 const store = configureStore({
     reducer: reducers,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: false }).concat(middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware(
+        {
+            thunk: false,
+            serializableCheck: false
+        }).concat(middleware),
 });
 
 sagaMiddleware.run(rootSaga);

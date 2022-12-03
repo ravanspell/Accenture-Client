@@ -9,7 +9,7 @@ import SelectionField from '../../molecules/SelectionField';
 
 
 const CreateTeacherForm = (props) => {
-    const { formRef } = props;
+    const { formRef, initialValues } = props;
 
     // setup validations to form
     const formValidationSchema = yup.object().shape({
@@ -28,12 +28,7 @@ const CreateTeacherForm = (props) => {
                 <Grid >
                     <Grid item xs={7} md={5} sm={12}>
                         <Formik
-                            initialValues={{
-                                name: '',
-                                email: '',
-                                contactNumber: '',
-                                subject: ''
-                            }}
+                            initialValues={initialValues}
                             validationSchema={formValidationSchema}
                             onSubmit={() => { }}
                             innerRef={formRef}
@@ -97,6 +92,15 @@ const CreateTeacherForm = (props) => {
 // set props and their data types
 CreateTeacherForm.propTypes = {
     formRef: PropTypes.objectOf(PropTypes.any).isRequired,
+    initialValues: PropTypes.any
 };
+
+// set props default values
+// required props not need default value
+CreateTeacherForm.defaultProps = {
+    data: [],
+    initialValues: {},
+};
+
 
 export default CreateTeacherForm;

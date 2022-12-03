@@ -11,6 +11,7 @@ import Classes from './pages/Classes';
 import CreateClasses from './pages/CreateClasses';
 import Teachers from './pages/Teachers';
 import CreateTeachers from './pages/CreateTeachers';
+import EditTeacher from './pages/EditTeacher';
 
 
 
@@ -25,6 +26,7 @@ function App() {
 							<Route exact path="/classes" element={<Classes />} />
 							<Route exact path="/class/add" element={<CreateClasses />} />
 							<Route exact path="/teacher/add" element={<CreateTeachers />} />
+							<Route path="/teacher/edit" element={<EditTeacher />} />
 						</Routes>
 						<ToastContainer />
 					</Container>
